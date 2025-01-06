@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de [Votre Nom] - Design & Développement Mobile</title>
+    <meta name="description" content="Portfolio de [Votre Nom], développeur et designer mobile spécialisé dans la création d'applications Android et iOS.">
+    <meta name="keywords" content="développeur mobile, design UI/UX, Android, iOS, [Votre Nom]">
+    <style>
+        /* Variables CSS */
+        :root {
+            --main-bg-color: #ffffff;
+            --secondary-bg-color: #f7f9fc;
+            --text-color: #333333;
+            --highlight-color: #007bff;
+            --button-color: #0056b3;
+            --button-hover-color: #004494;
+            --link-hover-color: #0056b3;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--highlight-color);
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.25rem;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--link-hover-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 1.25rem;
+            background: var(--highlight-color);
+            color: #ffffff;
+        }
+
+        .hero-content {
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.625rem 1.25rem;
+            background-color: var(--button-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover, .cta-button:focus {
+            background-color: var(--button-hover-color);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.5);
+        }
+
+        .cta-button:focus {
+            outline: none;
+        }
+
+        .section-style {
+            padding: 3rem 1.25rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: auto;
+            background: var(--secondary-bg-color);
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content img {
+            max-width: 12.5rem;
+            border-radius: 50%;
+            margin-bottom: 1.25rem;
+            border: 3px solid var(--button-color);
+        }
+
+        .social-links {
+            margin-top: 1.25rem;
+        }
+
+        .social-link {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin: 0 0.625rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--link-hover-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .project {
+            background: var(--secondary-bg-color);
+            padding: 1.25rem;
+            border-radius: 0.625rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .project:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .project video, .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            object-fit: cover;
+        }
+
+        #contact-form {
+            max-width: 25rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact-form input, #contact-form textarea, #contact-form button {
+            margin: 0.625rem 0;
+            padding: 0.625rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: var(--secondary-bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s;
+        }
+
+        #contact-form button {
+            cursor: pointer;
+            background-color: var(--button-color);
+            color: #ffffff;
+        }
+
+        #contact-form button:hover, #contact-form button:focus {
+            background-color: var(--button-hover-color);
+        }
+
+        #contact-form button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.5);
+        }
+
+        blockquote {
+            font-style: italic;
+            background-color: var(--highlight-color);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin: 1.25rem 0;
+            border-left: 4px solid var(--button-color);
+            color: #ffffff;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: var(--highlight-color);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                padding: 1rem 0;
+                z-index: 1000;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>[Votre Nom]</h1>
+            <div class="menu-toggle" id="menuToggle" aria-controls="menu" aria-expanded="false">☰</div>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#a-propos">À Propos</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#formations">Formations</a></li>
+                    <li><a href="#recommandations">Recommandations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Design & Développement Mobile</h1>
+                <p>Créateur d'expériences mobiles engageantes.</p>
+                <a href="#contact" class="cta-button">Contactez-moi</a>
+            </div>
+        </section>
+
+        <section id="a-propos" class="section-style">
+            <div class="about-content">
+                <img src="images/profile.jpg" alt="[Votre Nom], développeur mobile">
+                <h2>À Propos de Moi</h2>
+                <p>Développeur et designer mobile passionné, je crée des applications intuitives et performantes pour Android et iOS. J'aime relever de nouveaux défis et je m'investis pleinement dans chaque projet.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/votre-profil/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/votre-utilisateur-github" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/votre-utilisateur-twitter" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="section-style">
+            <h2>Mes Projets</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Projet Mobile 1</h3>
+                    <img src="images/project1.jpg" alt="Capture d'écran du projet mobile 1">
+                    <p>Description du projet 1... Ce projet innovant utilise React Native pour offrir une expérience utilisateur fluide sur Android et iOS.</p>
+                    <a href="https://example.com/project1" target="_blank" class="cta-button">Voir le projet</a>
+                </div>
+                <div class="project">
+                    <h3>Projet Mobile 2</h3>
+                    <video width="320" height="240" controls poster="images/project2.jpg">
+                        <source src="videos/project2.mp4" type="video/mp4">
+                    </video>
+                    <p>Description du projet 2... Application de gestion de tâches avec une interface utilisateur optimisée pour la productivité.</p>
+                    <a href="https://example.com/project2" target="_blank" class="cta-button">Voir la démo</a>
+                </div>
+                <div class="project">
+                    <h3>Projet Mobile 3</h3>
+                    <img src="images/project3.jpg" alt="Capture d'écran du projet mobile 3">
+                    <p>Description du projet 3... Une application de réseaux sociaux avec des fonctionnalités uniques de partage de contenu.</p>
+                    <a href="https://example.com/project3" target="_blank" class="cta-button">En savoir plus</a>
+                </div>
+                <div class="project">
+                    <h3>Projet Mobile 4</h3>
+                    <img src="images/project4.jpg" alt="Capture d'écran du projet mobile 4">
+                    <p>Description du projet 4... Une application éducative avec des animations interactives pour les enfants.</p>
+                    <a href="https://example.com/project4" target="_blank" class="cta-button">Découvrir l'application</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="section-style">
+            <h2>Mes Compétences</h2>
+            <ul>
+                <li>Développement mobile (Android, iOS)</li>
+                <li>Design d'interface utilisateur (UI)</li>
+                <li>Design d'expérience utilisateur (UX)</li>
+                <li>Connaissance des langages de programmation (Kotlin, Swift, React Native, Flutter)</li>
+                <li>Gestion de projet agile</li>
+                <li>Optimisation des performances des applications</li>
+                <li>Intégration d'API et services backend</li>
+            </ul>
+        </section>
+
+        <section id="formations" class="section-style">
+            <h2>Mes Formations</h2>
+            <ul>
+                <li>Master en Informatique - Université XYZ</li>
+                <li>Certification en Développement Mobile - Coursera</li>
+                <li>Formation en Design UI/UX - Udemy</li>
+            </ul>
+        </section>
+        
+        <section id="recommandations" class="section-style">
+            <h2>Recommandations</h2>
+            <blockquote>
+                "[Votre Nom] a été un atout majeur pour notre équipe, transformant nos idées en produits fonctionnels et esthétiques." 
+                <cite>- [Nom de la personne qui a témoigné], PDG de ABC Tech</cite>
+            </blockquote>
+            <blockquote>
+                "J'ai été impressionné par la capacité de [Votre Nom] à s'adapter rapidement à de nouveaux défis et à fournir des solutions de haute qualité."
+                <cite>- [Nom de la personne qui a témoigné], CTO chez DEF Solutions</cite>
+            </blockquote>
+        </section>
+
+        <section id="contact" class="section-style">
+            <h2>Contactez-moi</h2>
+            <form id="contact-form">
+                <label for="name">Votre nom</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                <label for="email">Votre e-mail</label>
+                <input type="email" id="email" name="email" placeholder="Votre e-mail" required>
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('show');
+            menuToggle.setAttribute('aria-expanded', menu.classList.contains('show') ? 'true' : 'false');
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInside = menu.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Validation d'email côté client
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                alert('Veuillez entrer une adresse email valide.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
